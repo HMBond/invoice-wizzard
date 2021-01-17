@@ -151,16 +151,16 @@ label[for='price'] button {
   left: -12px;
 }
 
-#contact {
-  grid-area: contact;
-}
-
-#addressee {
+.addressee {
   grid-area: addressee;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.contact {
+  grid-area: contact;
 }
 
 .invoice-info {
@@ -195,7 +195,7 @@ label[for='price'] button {
   justify-content: space-between;
 }
 
-#items {
+.items {
   grid-area: list;
 }
 
@@ -203,30 +203,30 @@ label[for='price'] button {
   font-weight: bold;
 }
 
-#items > .header {
+.items > .header {
   border-bottom: solid 1px grey;
 }
 
-#items > * {
+.items > * {
   display: grid;
   gap: 0.5rem;
   padding: 4px 0;
   grid-template-columns: 3rem 1fr 8rem 8rem 8rem;
 }
 
-#items > *.totals > *:first-of-type {
+.items > *.totals > *:first-of-type {
   grid-column-start: 1;
   grid-column-end: 4;
 }
 
-#items > *.totals > *.total {
+.items > *.totals > *.total {
   grid-column-start: 3;
   grid-column-end: 4;
   margin-right: -0.5rem;
   padding-right: 0.5rem;
 }
 
-#footer {
+.footer {
   grid-area: footer;
   margin-top: auto;
   font-size: 0.75rem;
@@ -405,7 +405,7 @@ label[for='city'] {
   body {
     background: white;
   }
-  #footer {
+  .footer {
     page-break-inside: avoid;
   }
   nav,
