@@ -1,0 +1,419 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url('./fonts/Poppins-Light.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./fonts/Poppins-ExtraLightItalic.ttf') format('truetype');
+  font-weight: lighter;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./fonts/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./fonts/Poppins-SemiBoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+:root {
+  --default-margin: 1.5rem;
+}
+
+html {
+  font-family: 'poppins', sans-serif;
+  font-size: 14px;
+  height: 100%;
+  /* fix for scrollbar jump glitch */
+  margin-left: calc(100vw - 100%);
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  background: white;
+  width: 800px;
+  height: min(1000px);
+  transform: scale(0.85);
+
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr 300px;
+  grid-template-rows: 150px 200px 150px 1fr 1fr;
+  grid-template-areas:
+    '. logo'
+    'addressee contact'
+    'invoice-info dates'
+    'list list'
+    'footer footer';
+  border: solid 3rem whitesmoke;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
+
+h1 {
+  font-weight: bold;
+  font-style: italic;
+}
+
+button {
+  padding: 0.5rem 1.75rem;
+  font-weight: bold;
+  font-style: italic;
+  font-size: large;
+  text-transform: uppercase;
+  background: cadetblue;
+  color: navajowhite;
+  border: solid cadetblue;
+  outline: none;
+  border-radius: 10rem;
+}
+
+button:hover,
+button:focus {
+  box-shadow: 0 0 0 3px navajowhite;
+}
+
+label {
+  display: block;
+}
+
+input {
+  font-size: large;
+  padding: 1rem 1rem 0.75rem 1rem;
+  margin-top: 0.25rem;
+  border-radius: 1rem;
+  outline: none;
+  border: none;
+  width: 100%;
+}
+
+input:hover {
+  background: pink;
+}
+input:focus {
+  background: navajowhite;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+label[for='price'] input,
+label[for='tax'] input {
+  width: 8rem;
+}
+
+label[for='price'] button {
+  float: right;
+}
+
+.logo {
+  grid-area: logo;
+  width: 250px;
+  margin-top: auto;
+  position: relative;
+  left: -12px;
+}
+
+#contact {
+  grid-area: contact;
+}
+
+#addressee {
+  grid-area: addressee;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.invoice-info {
+  grid-area: invoice-info;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.description {
+  margin-right: 1rem;
+}
+
+.invoice-id {
+  font-weight: bolder;
+  font-size: 2em;
+}
+
+.invoice-description {
+  display: flex;
+}
+
+.dates {
+  grid-area: dates;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.dates > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+#items {
+  grid-area: list;
+}
+
+.header {
+  font-weight: bold;
+}
+
+#items > .header {
+  border-bottom: solid 1px grey;
+}
+
+#items > * {
+  display: grid;
+  gap: 0.5rem;
+  padding: 4px 0;
+  grid-template-columns: 3rem 1fr 8rem 8rem 8rem;
+}
+
+#items > *.totals > *:first-of-type {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+#items > *.totals > *.total {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  margin-right: -0.5rem;
+  padding-right: 0.5rem;
+}
+
+#footer {
+  grid-area: footer;
+  margin-top: auto;
+  font-size: 0.75rem;
+  border-top: solid 1px grey;
+  padding-top: 0.25rem;
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: -250px;
+  width: 250px;
+  border-bottom-left-radius: 250px;
+  border-bottom-right-radius: 250px;
+  height: 325px;
+  background: pink;
+  transition: top 500ms ease;
+}
+
+nav::before {
+  content: '';
+  height: 100%;
+  background: lightpink;
+  width: 3px;
+  position: absolute;
+  z-index: -1;
+}
+
+nav:hover {
+  top: 0;
+}
+
+wizzard {
+  font-size: large;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: radial-gradient(rgba(255, 255, 255, 0.8), white);
+}
+
+.wizzard-item-row {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 2.5rem 1rem 1fr 1rem 2.5rem 2rem;
+  grid-template-areas: 'amount times description currency price remove';
+}
+
+.wizzard-item-row > .id {
+  display: none;
+}
+.wizzard-item-row > .tax {
+  display: none;
+}
+.wizzard-item-row > .amount {
+  grid-area: amount;
+}
+.wizzard-item-row > .times {
+  grid-area: times;
+}
+.wizzard-item-row > .description {
+  grid-area: description;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wizzard-item-row > .currency {
+  grid-area: currency;
+}
+.wizzard-item-row > .price {
+  grid-area: price;
+}
+.wizzard-item-row > .remove {
+  grid-area: remove;
+  background: navajowhite;
+  -webkit-mask-image: url(./images/trash.svg);
+  mask-image: url(./images/trash.svg);
+  cursor: pointer;
+}
+
+.wizzard-item-row > * {
+  padding-right: 0.5rem;
+}
+
+.form {
+  position: relative;
+  top: 10vh;
+  color: navajowhite;
+  width: 30rem;
+  padding: 2rem;
+  background: cadetblue;
+  border-radius: 2rem;
+  box-shadow: 2rem 6rem 0 0 navajowhite, -4rem -5rem 0 -0rem pink;
+  animation: boxShadowing 5s ease-in-out alternate infinite;
+}
+
+.form > div:not(.action-buttons) {
+  display: flex;
+  flex-direction: column;
+  gap: var(--default-margin);
+}
+
+input[type='file'] {
+  display: none;
+}
+
+@keyframes boxShadowing {
+  from {
+    box-shadow: 2rem 6rem 0 0 navajowhite, -4rem -5rem 0 -0rem pink;
+  }
+  to {
+    box-shadow: 3rem 6rem 0 1rem navajowhite, -6rem -5rem 0 1rem pink;
+  }
+}
+
+label {
+  display: grid;
+}
+
+label[for='city'] {
+  width: 100%;
+}
+
+.action-buttons {
+  margin-top: var(--default-margin);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--default-margin);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.border-top {
+  border-top: solid 1px grey;
+}
+
+.center {
+  justify-self: center;
+}
+
+.flex {
+  display: flex;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track-piece {
+  background: cadetblue;
+  border-left: 3px solid navajowhite;
+  border-right: 3px solid navajowhite;
+}
+::-webkit-scrollbar-thumb {
+  background: cadetblue;
+}
+
+@media print {
+  main {
+    border: none;
+    transform: scale(1);
+  }
+  body {
+    background: white;
+  }
+  #footer {
+    page-break-inside: avoid;
+  }
+  nav,
+  wizzard {
+    display: none;
+  }
+}
+
+@page {
+  margin: 3rem;
+}
