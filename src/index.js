@@ -1,4 +1,12 @@
-const { app, BrowserWindow } = require('electron');
+const {
+  app,
+  BrowserWindow,
+  Menu,
+  MenuItem,
+  ipcMain,
+  dialog
+} = require('electron');
+const fs = require('fs');
 const path = require('path');
 
 // Live Reload

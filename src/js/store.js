@@ -2,7 +2,7 @@ import { writable, get } from 'svelte/store';
 
 export const content = writable({});
 
-export const invoice = writable({
+const defaultInvoice = {
   id: '',
   description: '',
   invoiceDate: '',
@@ -15,7 +15,9 @@ export const invoice = writable({
   },
   tax: 21,
   items: []
-});
+};
+
+export const invoice = writable(defaultInvoice);
 
 export const wizzard = writable({
   visible: true,
@@ -26,10 +28,12 @@ export const wizzard = writable({
       ...wizz,
       visible: !wizz.visible
     })),
+  new: () => {
+    invoice.set(defaultInvoice);
+    get(wizzard).toggle();
+  },
   save: () => {
-    if (get(wizzard).visible) {
-      // todo: save invoice to db
-    }
+    // todo: save invoice to db
     get(wizzard).toggle();
   },
   previous: () =>
