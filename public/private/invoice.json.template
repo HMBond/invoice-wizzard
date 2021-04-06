@@ -1,0 +1,13 @@
+{
+  "invoiceNr": "",
+  "description": "",
+  "invoiceDate": "",
+  "paydate": "",
+  "addressee": {
+    "name": "",
+    "address": "",
+    "postcode": "",
+    "city": ""
+  },
+  "items": []
+}

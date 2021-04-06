@@ -2,59 +2,11 @@
 Simple invoice manager using Svelte and Electron Forge ()
 
 ## How to use
+1. Change the `public/private/invoice.json.template` to `public/private/invoice.json`
+and the `public/private/content.json.template` to `public/private/content.json`.
+2. Then edit the `public/private/content.json` file to add your private business info and defaults.
 
-1. Create new directory `/private`
-2. Add two files to this directory: `invoice.json` and `content.json`
-
-### invoice.json structure
-```
-{
-  "invoiceNr": "",
-  "description": "",
-  "invoiceDate": "",
-  "paydate": "",
-  "addressee": {
-    "name": "",
-    "address": "",
-    "postcode": "",
-    "city": ""
-  },
-  "items": [
-    {
-      "description": "",
-      "price": 123
-    }
-  ]
-}
-```
-
-### content.json structure
-```
-{
-  "contact": [
-    "Company Name",
-    "Address",
-    "Zip-code and City",
-    "<br />",
-    "email",
-    "tel",
-    "<br />",
-    "Company Id",
-    "Tax Id",
-    "Bank account",
-    "anything else?"
-  ],
-  "defaults": {
-    "currencySign": "€ ",
-    "tax": 21,
-    "itemAmount": 1,
-    "lblSubTotal": "Subtotaal excl. btw",
-    "lblTax": "% btw",
-    "lblTotal": "Totaal",
-    "footerTemplate": "We verzoeken u vriendelijk het bovenstaande bedrag van {total} voor {date} te voldoen op onze bankrekening onder vermelding van de omschrijving {id}. Voor vragen kunt u contact opnemen per e-mail."
-  }
-}
-```
+#### Note: Never push any files from `/public/private` folder to github (check .gitignore)
 
 ## Furthur development
 
