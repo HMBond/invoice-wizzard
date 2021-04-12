@@ -11,7 +11,7 @@
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\"",
     "svelte-build": "rollup -c",
-    "svelte-dev": "rollup -c -w",
+    "dev": "rollup -c -w",
     "svelte-start": "sirv public"
   },
   "keywords": [],

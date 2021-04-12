@@ -7,6 +7,7 @@
   import Contact from './components/Contact.svelte';
   import Invoice from './components/Invoice.svelte';
   import Footer from './components/Footer.svelte';
+  import Nav from './components/Nav.svelte';
   import Wizzard from './components/wizzard/Wizzard.svelte';
 
   function exportAsPfd() {
@@ -19,7 +20,7 @@
         .then((r) => r.json())
         .then((data) => {
           return data;
-        })
+        }),
     );
 
     invoice.set(
@@ -27,7 +28,7 @@
         .then((r) => r.json())
         .then((data) => {
           return data;
-        })
+        }),
     );
 
     addKeyboardActions({ container: document, exportAsPfd: exportAsPfd });
@@ -46,11 +47,10 @@
   <Invoice {invoice} />
   <Footer />
 </main>
-<nav>
-  <button on:click={() => $wizzard.new()}>New</button>
-  <button on:click={() => $wizzard.edit()}>Edit</button>
-  <button on:click={() => load()}>Load</button>
-  <button on:click={() => save()}>Save</button>
-  <img src="images/favicon.svg" alt="heart" width="30px" height="30px" />
-</nav>
+<Nav
+  OnNew={() => $wizzard.new()}
+  OnEdit={() => $wizzard.edit()}
+  OnLoad={() => load()}
+  OnSave={() => save()}
+/>
 <Wizzard />
