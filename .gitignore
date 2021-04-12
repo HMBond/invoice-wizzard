@@ -1,5 +1,5 @@
-/public/private/*.json
-/public/build/
+public/private/*.json
+public/build/
 
 # Logs
 logs

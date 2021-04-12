@@ -11,12 +11,12 @@
   import Wizzard from './components/wizzard/Wizzard.svelte';
 
   function exportAsPfd() {
-    //window.print();
+    window.print();
   }
 
   onMount(async () => {
     content.set(
-      await fetch('./private/content.json')
+      await fetch('/private/content.json')
         .then((r) => r.json())
         .then((data) => {
           return data;
@@ -24,7 +24,7 @@
     );
 
     invoice.set(
-      await fetch('./private/invoice.json')
+      await fetch('/private/invoice.json')
         .then((r) => r.json())
         .then((data) => {
           return data;

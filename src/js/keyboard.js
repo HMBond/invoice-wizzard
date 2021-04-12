@@ -1,8 +1,8 @@
 import { get } from 'svelte/store';
 import { wizzard } from '../js/store.js';
 
-export default function initKeyboard(params) {
-  const { container, exportAsPfd } = params;
+export default function initKeyboard({ container, exportAsPfd }) {
+  // const { container, exportAsPfd } = params;
   const actions = {
     onEscape: get(wizzard).toggle,
     onArrowLeft: get(wizzard).previous,
@@ -18,7 +18,7 @@ export default function initKeyboard(params) {
     onCtrlS: () => (get(wizzard).visible ? get(wizzard).done() : exportAsPfd()),
     onCtrlO: () => load(),
     onCtrlL: () => load(),
-    onCtrlN: () => get(wizzard).new()
+    onCtrlN: () => get(wizzard).new(),
   };
 
   container.addEventListener('keydown', (e) => {
