@@ -10,7 +10,6 @@
         <span>{$invoice.addressee.city}</span>
     </div>
 </div>
-Î
 <div class="invoice-info">
     <div class="invoice-id">
         <span>Factuur </span>
