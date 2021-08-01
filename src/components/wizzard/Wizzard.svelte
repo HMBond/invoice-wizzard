@@ -2,22 +2,22 @@
   import { content, invoice, wizzard as state } from '../../js/store.js';
   import StepOne from './StepOne.svelte';
   import StepTwo from './StepTwo.svelte';
-  $: items = $invoice.items;
   let item = {};
   const stepMax = 3;
 
   function addItem() {
     invoice.update((invoice) => ({
       ...invoice,
-      items: [...items, item]
+      items: [...invoice.items, item],
     }));
+    item = {};
   }
 
   function removeItem(item) {
     const items = $invoice.items.filter((i) => i !== item);
     invoice.update((invoice) => ({
       ...invoice,
-      items
+      items,
     }));
   }
 </script>
@@ -48,14 +48,8 @@
       <label for="price">
         <span>Price per item</span>
         <div>
-          <input
-            type="number"
-            placeholder="€€€"
-            width="8rem"
-            bind:value={item.price}
-          />
+          <input type="number" width="4rem" bind:value={item.price} />
           <span>€</span>
-          <button type="button" on:click={() => addItem()}> Add Item </button>
         </div>
       </label>
       <div class="wizzard-item-container">
@@ -65,7 +59,7 @@
             <span class="times">×</span>
             <span class="description">{item.description}</span>
             <span class="price">{item.price}</span>
-            <span class="currencysign">{$content.defaults.currencySign}</span>
+            <span class="currencysign">{$content.currencySign}</span>
             <span
               class="remove icon-trash-bin"
               on:click={() => removeItem(item)}
@@ -78,14 +72,27 @@
       <button
         type="button"
         class:hidden={$state.step === 1}
-        on:click={() => $state.previous()}> Previous </button>
+        on:click={() => $state.previous()}
+      >
+        Previous
+      </button>
       <button
         type="button"
         class:hidden={$state.step === stepMax}
-        on:click={() => $state.next()}> Next </button>
+        on:click={() => $state.next()}
+      >
+        Next
+      </button>
+      <button
+        type="button"
+        class:hidden={$state.step !== 3}
+        on:click={() => addItem()}
+      >
+        Add Item
+      </button>
     </div>
     <div class="action-buttons">
-      <button type="button" on:click={() => $state.save()}>done</button>
+      <button type="button" on:click={() => $state.done()}>done</button>
     </div>
   </form>
 </wizzard>

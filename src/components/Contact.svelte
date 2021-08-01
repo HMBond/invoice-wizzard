@@ -3,8 +3,8 @@
 </script>
 
 <div class="contact">
-  {#if $content.contactInfo}
-    {#each $content.contactInfo as entry}
+  {#if $content.contact}
+    {#each $content.contact as entry}
       <div>{@html entry}</div>
     {/each}
   {/if}

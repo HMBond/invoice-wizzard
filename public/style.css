@@ -207,19 +207,19 @@ label[for='price'] button {
   border-bottom: solid 1px grey;
 }
 
-.items > * {
+.items > .row {
   display: grid;
   gap: 0.5rem;
   padding: 4px 0;
-  grid-template-columns: 3rem 1fr 8rem 8rem 8rem;
+  grid-template-columns: 5rem 1fr 8rem 8rem 8rem;
 }
 
-.items > *.totals > *:first-of-type {
+.items > .totals.row > *:first-of-type {
   grid-column-start: 1;
   grid-column-end: 4;
 }
 
-.items > *.totals > *.total {
+.items > .totals.row > *.total {
   grid-column-start: 3;
   grid-column-end: 4;
   margin-right: -0.5rem;
@@ -383,6 +383,7 @@ label[for='city'] {
 
 .flex {
   display: flex;
+  gap: var(--default-margin);
 }
 
 ::-webkit-scrollbar {

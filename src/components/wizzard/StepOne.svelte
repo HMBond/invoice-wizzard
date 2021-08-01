@@ -9,17 +9,17 @@
     <span>Name adressee</span>
     <input
       type="text"
-      placeholder="Who should pay?"
+      placeholder="Who pays?"
       bind:value={$invoice.addressee.name}
     />
   </label>
+  <label for="name-extra-line">
+    <span>Second Line (optional)</span>
+    <input type="text" bind:value={$invoice.addressee.extraLine} />
+  </label>
   <label for="address"
     ><span>Address</span>
-    <input
-      type="text"
-      placeholder="From where?"
-      bind:value={$invoice.addressee.address}
-    />
+    <input type="text" placeholder="" bind:value={$invoice.addressee.address} />
   </label>
   <div class="flex">
     <label for="postcode">

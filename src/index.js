@@ -1,18 +1,11 @@
-const {
-  app,
-  BrowserWindow,
-  Menu,
-  MenuItem,
-  ipcMain,
-  dialog
-} = require('electron');
-const fs = require('fs');
+const { app, BrowserWindow } = require('electron');
 const path = require('path');
+require('dotenv').config();
 
 // Live Reload
 require('electron-reload')(__dirname, {
   electron: path.join(__dirname, '../node_modules', '.bin', 'electron'),
-  awaitWriteFinish: true
+  awaitWriteFinish: true,
 });
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -28,8 +21,8 @@ const createWindow = () => {
     height: 600,
     fullscreen: true,
     webPreferences: {
-      nodeIntegration: true
-    }
+      nodeIntegration: true,
+    },
   });
 
   // and load the index.html of the app.

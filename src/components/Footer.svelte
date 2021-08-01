@@ -4,12 +4,12 @@
   let htmlFooterContent;
 
   $: {
-    if ($content.defaults) {
+    if ($content) {
       const totals = calculateTotals($invoice.items);
-      const formattedTotal =
-        $content.defaults.currencySign +
-        (totals.totalPrice ? totals.totalPrice.toFixed(2) : 0);
-      htmlFooterContent = $content.defaults.footerTemplate
+      const formattedTotal = `${$content.currencySign} ${
+        totals.totalPrice ? totals.totalPrice.toFixed(2) : 0
+      }`;
+      htmlFooterContent = $content.footerTemplate
         .replace('{total}', formattedTotal)
         .replace('{date}', $invoice.expirationDate)
         .replace('{id}', $invoice.id);
