@@ -2,6 +2,7 @@
   "name": "svelte-electron-forge",
   "productName": "svelte-electron-forge",
   "version": "1.0.0",
+  "private": true,
   "description": "Svelte + Electron Forge",
   "main": "src/index.js",
   "scripts": {
